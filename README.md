@@ -20,7 +20,7 @@
 		
 
 
-# Tip
+# Tips
 
 * The Train data-set that you wish to use muss have the following format:
 	
