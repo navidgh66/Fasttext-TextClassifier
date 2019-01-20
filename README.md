@@ -22,7 +22,7 @@
 
 * The Train data-set that you wish to use muss have the following format:
 	
-	* For specifying __Target Label__ of line/word please use "____label____"
-* Example: "____positive____ This dog is so cute" ==> __This dog is so cute__ Class is __positive__
+	* For specifying __Target Label__ of line/word please use `__label__`[space][line/word]
+* Example: `__positive__` This dog is so cute" ==> "__This dog is so cute__" Class name is __positive__
 
 
