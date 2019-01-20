@@ -16,6 +16,8 @@
 * __Missed-Matched__: '-pm' Print Missed-Match lines, that is, cases where the model predicts wrong label for the line). Very useful for research.
 * __Reduce Size__: '-rs' Quantize (reduce the size of) the binary model.
 * __Evaluation Model__: '-em' with this option, 80 percent of input data-set will be used as training data-set and the rest 0f 20 percent will be used as test data-set for evaluation
+* __Prediction__: '-pr- Predicting new lines/words based on a pre-trained model.
+		
 
 
 # Tip
@@ -24,5 +26,7 @@
 	
 	* For specifying __Target Label__ of line/word please use `__label__`[space][line/word]
 * Example: `__positive__` This dog is so cute" ==> "__This dog is so cute__" Class name is __positive__
+
+* For Classifying new lines/words, A path to the binary pre-trained model must be specified by '-m' option 
 
 
