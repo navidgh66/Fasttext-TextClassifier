@@ -1,6 +1,6 @@
 # Fasttext-TextClassifier
 * A Powerful text classifier (NLP) using FastText as engine  with several Cross Validation options and etc.
-* you can train a model for classifying each line of a document (using facebook FastText)
+* you can train a model for classifying each/word line of a document (using Facebook FastText)
 
 # Requirement
 
@@ -12,9 +12,17 @@
 * __wordNgram__: '-wg' length of word n-grams (default=1)
 * __Learning Rate__: '-lr' learning rate (default= 0.7)
 * __Kfold__: '-k' Run K-fold cross validation method (default K=5).
-	* __Tips__:it is strongly suggested using K=10 for large datasets and K=5 otherwise.
+	* __Tips__:it is strongly suggested using K=10 for large data-sets and K=5 otherwise.
 * __Missed-Matched__: '-pm' Print Missed-Match lines, that is, cases where the model predicts wrong label for the line). Very useful for research.
 * __Reduce Size__: '-rs' Quantize (reduce the size of) the binary model.
-* __Evaluation Model__: '-em' with this option, 80 percent of input dataset will be used as training dataset and the rest 0f 20 percent will be used as test dataset for evaluation
+* __Evaluation Model__: '-em' with this option, 80 percent of input data-set will be used as training data-set and the rest 0f 20 percent will be used as test data-set for evaluation
+
+
+# Tips
+
+* The Train data-set that you wish to use muss have the following format:
+	
+	* For specifying __Target Label__ of line/word please use "____label____"
+* Example: "____positive____ This dog is so cute" ==> __This dog is so cute__ Class is __positive__
 
 
