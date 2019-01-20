@@ -77,6 +77,9 @@ argparser.add_argument("-rs", "--reduce-size", action='store_true', default=Fals
 argparser.add_argument("-em", "--evaluation-model", action='store_true', default=False,
                         help="with this option, 80 percent of input dataset will be used as training dataset and the rest 0f 20 percent will be used as test dataset for evaluation")
 
+argparser.add_argument("-pr", "--prediction", action='store_true', default=False,
+                       help="Predicting new inputs based on a pre-trained model.")
+
 args = argparser.parse_args()
 
 ################################################################################
@@ -309,11 +312,33 @@ def cleanup():
     for f in my_tmp_files:
         # print("Removing tmp file: {}".format(f))
         os.remove(f)
+################################################################################
+def line_prediction(classifier, line):
+    klasses = classifier.predict(line)  # => [[klass]]
+    klass = (klasses[0][0]).replace("__label__", "")
+    return klass
 
+################################################################################
+def line_classifier(fname,model):
+    classifier = ft.load_model(model)
+    with Opener(fname) as f:
+        klass_list=[]
+        for line in f:
+            klass = line_prediction(classifier, line)
+            klass_list.append('<{}>'.format(klass))
+        return klass_list
+################################################################################
+def pooling_results(prediction,text):
+    for i in range(len(prediction)):
+        print('{}\t{}'.format(prediction[i], text[i]))
 ################################################################################
 
 def main():
-    if args.evaluation_model:
+    if args.prediction:
+        prediction = line_classifier(args.input_file, args.model)
+        plain_text = open(args.input_file).readlines()
+        pooling_results(prediction,plain_text)
+    elif args.evaluation_model:
         (train_set, test_set) = get_datasets()
         train_model(train_set)
         measure_quality(test_set)
