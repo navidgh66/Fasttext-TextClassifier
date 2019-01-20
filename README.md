@@ -18,7 +18,7 @@
 * __Evaluation Model__: '-em' with this option, 80 percent of input data-set will be used as training data-set and the rest 0f 20 percent will be used as test data-set for evaluation
 
 
-# Tips
+# Tip
 
 * The Train data-set that you wish to use muss have the following format:
 	
